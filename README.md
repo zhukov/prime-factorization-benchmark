@@ -28,10 +28,16 @@ This library was included, because I've found the article http://www.joseprio.co
 The library was pretty tricky to use, because of its functions naming. Also, almost every function has its copy (with `_` (underscore) in the end), which does the same as original one, but doesn't create a new bigint var instance. That's what I needed for speed improvement.
 
 
+Tests code
+==========
+
+The code is available in this repo, you can start browsing here: https://github.com/zhukov/prime-factorization-benchmark/blob/master/index.html#L30.
+
+
 Running tests
 =============
 
-The tests are available online via GH-pages: http://zhukov.github.io/prime-factorization-benchmark/.
+The tests are available via GH-pages: http://zhukov.github.io/prime-factorization-benchmark/.
 
 Each test was repeated from 5 to 10 times and the average time was calculated.
 
