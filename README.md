@@ -25,11 +25,14 @@ Supports just 64-bit calculations, but that's almost always enough for our needs
 
 This library was included, because I've found the article http://www.joseprio.com/blog/2013/04/27/biginteger-libraries-for-js/, which says that the library allows to reuse existing arrays when operating with numbers, instead of creating new ones. This feature was considered as important for our task, as there is a big loop with a lot of computations in each iteration. Less used memory => better performance.
 
+The library was pretty tricky to use, because of its functions naming. Also, almost every function has its copy (with `_` (underscore) in the end), which does the same as original one, but doesn't create a new bigint var instance. That's what I needed for speed improvement.
+
 
 Results
 =======
 
-Here is the table with results for my hardware. As it was expected, Leemon Baird library showed best scores on almost all platforms.
+Here is the table with results for my hardware.
+The number in corresponding cell is amount in seconds required to compute the primes. Less is better.
 
 
 Library  / Browser          | Chrome | Firefox | Firefox OS 1.3 | Firefox OS 1.1 | iPhone  | Android
@@ -40,11 +43,33 @@ leemon bigint               | 1.75   | 1.5     | 26.5           | 68            
 leemon bigint via worker    | 1.85   | 1.6     | ?              | **90**         | 5.6     | 8.1
 
 
+As it was expected, Leemon Baird library showed best scores on almost all platforms.
+
+
+
+Notes
+===========
+
+
+GCD problem
+-----------
+
+In my case leemon bigint library had problems with GCD function. The result was incorrect, comparing to jsbn. I didn't get inside the library code, I've just replaced:
+```javascript
+g = GCD(z, what);
+```
+with:
+```javascript
+eGCD_(z, what, g, a, b);
+```
+
+Everything worked fine after that.
+
 
 Random pseudo generator
 -----------------------
 
-In order to make every run equal we should replace `Math.random()` with predefined values:
+In order to make every benchmark run equal we should replace `Math.random()` with predefined values:
 
 ```javascript
 var randoms = [
