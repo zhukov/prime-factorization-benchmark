@@ -21,7 +21,7 @@ Probably, the most popular javascript bigint implementation. Is very easy in usa
 
 Supports just 64-bit calculations, but that's almost always enough for our needs (see "Task description").
 
-### [Big Integer Library by Leemon Baird]
+### [Big Integer Library by Leemon Baird](http://www.leemon.com/crypto/BigInt.html)
 
 This library was included, because I've found the article http://www.joseprio.com/blog/2013/04/27/biginteger-libraries-for-js/, which says that the library allows to reuse existing arrays when operating with numbers, instead of creating new ones. This feature was considered as important for our task, as there is a big loop with a lot of computations in each iteration. Less used memory => better performance.
 
