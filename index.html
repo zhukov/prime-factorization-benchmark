@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Crypto tests</title>
+</head>
+<body>
+
+  <div>
+    <button onclick="launchTest('bi')">JSBN</button>
+    <button onclick="launchTest('cl')">Long</button>
+    <button onclick="launchTest('wr')">Worker</button>
+    <button onclick="launchTest('le')">Leemon</button>
+  </div>
+
+  <script type="text/javascript" src="jsbn_combined.js"></script>
+  <script type="text/javascript" src="long.js"></script>
+  <script type="text/javascript" src="bigint.js"></script>
+
+  <script type="text/javascript" src="js/lib/utils.js"></script>
+  <script type="text/javascript" src="js/lib/bin_utils.js"></script>
+
+  <script type="text/javascript">
+
+  function launchTest (test) {
+    var test = false;
+    switch (test) {
+      case 'bi':
+        pqPrimeBigInteger(new BigInteger(bytesFromHex('1dfaf951107f49df')));
+        alert(dT());
+        break;
+
+      case 'cl':
+        pqPrimeLong(goog.math.Long.fromString('1dfaf951107f49df', 16))
+        alert(dT());
+        break;
+
+      case 'wr':
+        var worker = new Worker('js/lib/pq_worker.js');
+        worker.onmessage = function (e) {
+          alert(dT());
+        };
+        worker.postMessage([29, 250, 249, 81, 16, 127, 73, 223]);
+        return;
+
+      default:
+        pqPrimeLeemon(str2bigInt('1dfaf951107f49df', 16, Math.ceil(64 / bpe) + 1));
+        alert(dT());
+    }
+  }
+
+  </script>
+
+</body>
+</html>
