@@ -31,7 +31,7 @@ The library was pretty tricky to use, because of its functions naming. Also, alm
 Results
 =======
 
-Here is the table with results for my hardware.
+Here is the table with results for my hardware. Each test was repeated from 5 to 10 times and the average time was calculated.
 The number in corresponding cell is amount in seconds required to compute the primes. Less is better.
 
 
