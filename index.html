@@ -41,7 +41,7 @@
         break;
 
       case 'wr':
-        var worker = new Worker('js/lib/pq_worker.js');
+        var worker = new Worker('pq_worker.js');
         worker.onmessage = function (e) {
           alert(dT());
         };
