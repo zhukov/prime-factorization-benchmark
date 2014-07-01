@@ -17,13 +17,19 @@
   <script type="text/javascript" src="long.js"></script>
   <script type="text/javascript" src="bigint.js"></script>
 
-  <script type="text/javascript" src="utils.js"></script>
   <script type="text/javascript" src="bin_utils.js"></script>
 
   <script type="text/javascript">
 
+
+  var startTime = (new Date()).getTime();
+  function dT () {
+    return (((new Date()).getTime() - startTime) / 1000).toFixed(3);
+  }
+
   function launchTest (test) {
     var test = false;
+    startTime = (new Date()).getTime();
     switch (test) {
       case 'bi':
         pqPrimeBigInteger(new BigInteger(bytesFromHex('1dfaf951107f49df')));
