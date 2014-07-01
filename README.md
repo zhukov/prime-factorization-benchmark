@@ -31,7 +31,8 @@ The library was pretty tricky to use, because of its functions naming. Also, alm
 Running tests
 =============
 
-The tests are available online via GH-pages: http://zhukov.github.io/prime-factorization-benchmark/
+The tests are available online via GH-pages: http://zhukov.github.io/prime-factorization-benchmark/.
+
 Each test was repeated from 5 to 10 times and the average time was calculated.
 
 You can try to run tests on your platform, just press the corresponding button. For better results, refresh page after each launch.
